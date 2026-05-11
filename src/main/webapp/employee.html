@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>e-Hotels | Employee Portal</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>e-Hotels</h1>
+        <p>Employee Portal & Front Desk Operations</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="card">
+            <h2>Process Customer Check-In</h2>
+            <p>Transform an existing booking into an active renting.</p>
+            <form action="processCheckIn" method="POST">
+                <label for="bookingId">Customer Booking ID:</label>
+                <input type="number" id="bookingId" name="bookingId" required>
+                
+                <label for="employeeId">Your Employee ID:</label>
+                <input type="number" id="employeeId" name="employeeId" required>
+                
+                <input type="submit" value="Complete Check-In">
+            </form>
+        </div>
+        
+        <div class="card">
+            <h2>Process Customer Payment</h2>
+            <p>Record a payment for an active room renting.</p>
+            <form action="processPayment" method="POST">
+                <label for="rentingId">Active Renting ID:</label>
+                <input type="number" id="rentingId" name="rentingId" required>
+                
+                <label for="amount">Payment Amount ($):</label>
+                <input type="number" step="0.01" id="amount" name="amount" min="0.01" required>
+                
+                <label for="method">Payment Method:</label>
+                <select id="method" name="method">
+                    <option value="Credit Card">Credit Card</option>
+                    <option value="Debit Card">Debit Card</option>
+                    <option value="Cash">Cash</option>
+                </select>
+                
+                <input type="submit" value="Submit Payment">
+            </form>
+        </div>
+
+        <div class="card">
+            <h2>Management Reports</h2>
+            <p>View real-time aggregated data regarding room availability and hotel capacities.</p>
+            <form action="viewDashboard" method="GET">
+                <input type="submit" value="Open Reports Dashboard">
+            </form>
+        </div>
+
+        <div style="text-align: center; margin-top: 20px;">
+             <a href="index.html">Back to Home</a> | <a href="admin.html">Admin Dashboard</a>
+        </div>
+    </div>
+</body>
+</html>

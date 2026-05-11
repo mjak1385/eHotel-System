@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>e-Hotels | Data Management</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="scripts.js"></script>
+</head>
+<body>
+
+    <header>
+        <h1>e-Hotels</h1>
+        <p>System Administrator Dashboard</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="card">
+            <h2>Customer Management</h2>
+            
+            <h3>Add a New Customer</h3>
+            <form action="adminCrud" method="POST">
+                <input type="hidden" name="action" value="insert_customer">
+                <label>Full Name:</label> <input type="text" name="fullName" required>
+                <label>Address:</label> <input type="text" name="address" required>
+                <label>ID Type (e.g., Passport):</label> <input type="text" name="idType" required>
+                <label>ID Number:</label> <input type="text" name="idNumber" required>
+                <label>Registration Date:</label> <input type="date" name="regDate" required>
+                <input type="submit" value="Insert Customer">
+            </form>
+
+            <h3>Update Customer Address</h3>
+            <form action="adminCrud" method="POST">
+                <input type="hidden" name="action" value="update_customer">
+                <label>Target Customer ID:</label> <input type="number" name="customerId" required>
+                <label>New Address:</label> <input type="text" name="newAddress" required>
+                <input type="submit" value="Update Address">
+            </form>
+
+            <h3>Delete a Customer</h3>
+            <p><em>Warning: Deleting a customer will cascade and delete their active bookings/rentings.</em></p>
+            <form action="adminCrud" method="POST">
+                <input type="hidden" name="action" value="delete_customer">
+                <label>Target Customer ID:</label> <input type="number" name="customerId" required>
+                <input type="submit" value="Delete Customer" style="background-color: #dc2626;">
+            </form>
+        </div>
+
+        <div class="card">
+            <h2>Room Management</h2>
+            
+            <h3>Add a New Room</h3>
+            <form action="adminCrud" method="POST">
+                <input type="hidden" name="action" value="insert_room">
+                <label>Hotel ID:</label> <input type="number" name="hotelId" required>
+                <label>Price ($):</label> <input type="number" step="0.01" name="price" required>
+                <label>Capacity:</label> <input type="number" name="capacity" required>
+                <label>View Type:</label> <input type="text" name="viewType">
+                <label>Amenities:</label> <input type="text" name="amenities">
+                <label>Is Extendable (true/false):</label> 
+                <select name="isExtendable">
+                    <option value="true">True</option>
+                    <option value="false">False</option>
+                </select>
+                <label>Problems/Status:</label> <input type="text" name="problems" value="None">
+                <input type="submit" value="Insert Room">
+            </form>
+
+            <h3>Update Room Price</h3>
+            <form action="adminCrud" method="POST">
+                <input type="hidden" name="action" value="update_room">
+                <label>Target Room ID:</label> <input type="number" name="roomId" required>
+                <label>New Price ($):</label> <input type="number" step="0.01" name="newPrice" required>
+                <input type="submit" value="Update Price">
+            </form>
+
+            <h3>Delete a Room</h3>
+            <form action="adminCrud" method="POST">
+                <input type="hidden" name="action" value="delete_room">
+                <label>Target Room ID:</label> <input type="number" name="roomId" required>
+                <input type="submit" value="Delete Room" style="background-color: #dc2626;">
+            </form>
+        </div>
+
+        <div class="card">
+            <h2>Hotel Management</h2>
+            
+            <h3>Add a New Hotel</h3>
+            <form action="adminCrud" method="POST">
+                <input type="hidden" name="action" value="insert_hotel">
+                <label>Chain ID:</label> <input type="number" name="chainId" required>
+                <label>Star Rating (1-5):</label> <input type="number" min="1" max="5" name="stars" required>
+                <label>Number of Rooms:</label> <input type="number" name="numRooms" required>
+                <label>Address:</label> <input type="text" name="address" required>
+                <input type="submit" value="Insert Hotel">
+            </form>
+
+            <h3>Update Hotel Star Rating</h3>
+            <form action="adminCrud" method="POST">
+                <input type="hidden" name="action" value="update_hotel">
+                <label>Target Hotel ID:</label> <input type="number" name="hotelId" required>
+                <label>New Star Rating:</label> <input type="number" min="1" max="5" name="newStars" required>
+                <input type="submit" value="Update Stars">
+            </form>
+
+            <h3>Delete a Hotel</h3>
+            <p><em>Warning: Deleting a hotel removes all associated rooms and employees.</em></p>
+            <form action="adminCrud" method="POST">
+                <input type="hidden" name="action" value="delete_hotel">
+                <label>Target Hotel ID:</label> <input type="number" name="hotelId" required>
+                <input type="submit" value="Delete Hotel" style="background-color: #dc2626;">
+            </form>
+        </div>
+
+        <div class="card">
+            <h2>Employee Management</h2>
+            
+            <h3>Add a New Employee</h3>
+            <form action="adminCrud" method="POST">
+                <input type="hidden" name="action" value="insert_employee">
+                <label>Hotel ID:</label> <input type="number" name="hotelId" required>
+                <label>Full Name:</label> <input type="text" name="fullName" required>
+                <label>Address:</label> <input type="text" name="address" required>
+                <label>SSN/SIN:</label> <input type="text" name="ssn" required>
+                <label>Role:</label> <input type="text" name="role" required>
+                <input type="submit" value="Insert Employee">
+            </form>
+
+            <h3>Update Employee Role</h3>
+            <form action="adminCrud" method="POST">
+                <input type="hidden" name="action" value="update_employee">
+                <label>Target Employee ID:</label> <input type="number" name="employeeId" required>
+                <label>New Role:</label> <input type="text" name="newRole" required>
+                <input type="submit" value="Update Role">
+            </form>
+
+            <h3>Delete an Employee</h3>
+            <form action="adminCrud" method="POST">
+                <input type="hidden" name="action" value="delete_employee">
+                <label>Target Employee ID:</label> <input type="number" name="employeeId" required>
+                <input type="submit" value="Delete Employee" style="background-color: #dc2626;">
+            </form>
+        </div>
+
+        <div style="text-align: center; margin-top: 20px;">
+             <a href="index.html">Back to Home</a> | <a href="employee.html">Employee Portal</a>
+        </div>
+    </div>
+</body>
+</html>
