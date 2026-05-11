@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class DBConnection {
     private static final String URL = "jdbc:postgresql://localhost:5432/postgres"; 
     private static final String USER = "postgres"; 
-    private static final String PASSWORD = "mjak.1385";
+    private static final String PASSWORD = "YOUR_PASSWORD_HERE";
 
     public static Connection getConnection() throws SQLException, ClassNotFoundException {
         // Load the PostgreSQL driver
