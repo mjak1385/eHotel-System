@@ -41,4 +41,4 @@ Built to handle complex relational data, this project demonstrates advanced data
 ### Installation
 1. Clone this repository to your local machine:
    ```bash
-   git clone [https://github.com/YOUR_USERNAME/eHotel-Management-System.git](https://github.com/YOUR_USERNAME/eHotel-Management-System.git)
+   git clone [https://github.com/YOUR_USERNAME/eHotel-Management-System.git](https://github.com/mjak1385/eHotel-System.git)
